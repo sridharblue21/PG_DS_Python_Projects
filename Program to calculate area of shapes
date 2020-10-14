@@ -1,0 +1,79 @@
+import math #importing math func
+    
+#common func to get only numeric input
+def main():
+    input_option = get_input()
+    while input_option.isnumeric() is False:
+        input_option = input('Invalid input, please enter a number: ')
+    else:
+        if int(input_option) == 1:
+            squ = input('Please enter the length of a side: ')
+            while squ.isnumeric() is False:
+                squ = input('Invalid input, please enter a number: ')
+            else:
+                area_of_squ(squ)
+        elif int(input_option) == 2:
+            wid = input('Please enter the width: ')
+            while wid.isnumeric() is False:
+                wid = input('Invalid input, please enter a number: ')
+            else:
+                hei = input('Please enter the height: ')
+                while hei.isnumeric() is False:
+                    wid = input('Invalid input, please enter a number: ')
+                else:
+                    area_of_rect(wid,hei)
+        elif int(input_option) == 3:
+            base = input('Please enter the length of base: ')
+            while base.isnumeric() is False:
+                base = input('Invalid input, please enter a number: ')
+            else:
+                lgh = input('Please enter the length of height: ')
+                while lgh.isnumeric() is False:
+                    lgh = input('Invalid input, please enter a number: ')
+                else:
+                    area_of_tri(base,lgh)
+        elif int(input_option) == 4:
+            rad = input('Please enter the radius of the circle: ')
+            while rad.isnumeric() is False:
+                    rad = input('Invalid input, please enter a number: ')
+            else:
+                area_of_cir(rad)
+        elif int(input_option) == 5:
+            print('\033[92m' + 'Thanks for using the program, Bye!' + '\033[0m')
+        else:
+            print('Invalid input, please enter a valid option: ')
+            main()
+
+
+#getting user input
+def get_input():
+    input_option = input('Which shape would you like to calculate the area for? Please enter the option number-\n 1. Square\n 2. Rectangle\n 3. Triangle\n 4. Circle\n 5. End Program\n Enter Option: ')    
+    return input_option
+
+# function to find area of a square needs side as input
+def area_of_squ(x):
+    area = float(x)**2
+    print('Area of the square is',area,'square meters')
+    main() # return to main menu
+    return area
+# function to find area of a rectangle needs length and width as input
+def area_of_rect(x,y):
+    area = float(x)*float(y)
+    print('Area of the rectangle is',area,'square meters')
+    main() # return to main menu
+    return area    
+# function to find area of a triangle needs base and height as input
+def area_of_tri(x,y):
+    area = float(x)*float(y)/2
+    print('Area of the triangle is',area,'square meters')
+    main() # return to main menu
+    return area
+# function to find area of a circle needs radius as input
+def area_of_cir(x):
+    area = math.pi*float(x)**2
+    print('Area of the circle is',area,'square meters')
+    main() # return to main menu
+    return area
+
+#main funtion to start the program
+main()
