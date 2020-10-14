@@ -1,0 +1,31 @@
+
+key = 'abcdefghijklmnopqrstuvwxyz'
+
+def encrypt(text , n):
+    result = ''
+    for l in text.lower():
+        try:
+            i = (key.index(l) + n) % 26
+            result += key[i]
+        except ValueError:
+            result += l
+
+    return result
+
+def decrypt(text , n):
+    result = ''
+    for l in text:
+        try:
+            i = (key.index(l) - n) % 26
+            result += key[i]
+        except ValueError:
+            result += l
+
+    return result
+
+
+encrypted = encrypt('hello world!', 3)
+print('Encrypted:', encrypted)
+
+decrypted = decrypt('khoor zruog!', 3)
+print('Decrypted:', decrypted)
