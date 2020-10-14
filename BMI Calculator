@@ -1,0 +1,45 @@
+def main():
+    user_input = get_input()
+    while user_input.isnumeric() is False:
+        user_input = input('Invalid input, Please enter a valid option: ')
+    else:
+        if int(user_input) == 1:
+            weight = get_float('Please enter your weight in kg: ')
+            height = get_float('Please enter your height in meter: ')
+            #print('calculating BMI for weight: ' + str(weight) + ' and height: ' + str(height))
+            user_bmi(weight,height)
+        elif int(user_input) == 2:
+            print('Thanks for Playing')
+        else:
+            print('Invalid input, please enter a valid option: ')
+            main()
+
+def get_float(prompt):
+    while True:
+        try: 
+            return float(input(prompt))
+        except ValueError:
+            print("Please enter a number")      
+
+def get_input():
+    user_input = input('1.Check your BMI\n2.Quit\nEnter your option: ')
+    return user_input
+
+def user_bmi(x,y):
+    z = (float(x) / float(y)**2)
+    z = round(z,2)
+    if z < 18.5:
+        print('Your BMI value is',z, 'and your weight class is UNDERWEIGHT')
+        main()
+    elif (z > 18.5) & (z < 24.9):
+        print('Your BMI value is',z, 'and your weight class is NORMAL')
+        main()
+    elif (z > 25.0) & (z < 29.9):
+        print('Your BMI value is',z, 'and your weight class is OVERWEIGHT')
+        main()
+    elif (z > 30.0):
+        print('Your BMI value is',z, 'and your weight class is VERY OVERWEIGHT')
+        main()
+    
+
+main()           
